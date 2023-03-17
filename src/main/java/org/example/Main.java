@@ -1,5 +1,13 @@
 package org.example;
 
+import org.example.algorithms.Search;
+import org.example.algorithms.Sort;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -45,7 +53,21 @@ public class Main {
 //
 //        String str = "dfij;";
 //        int v = 'b';
-//        System.out.println(v);
+
+
+        Integer[] inputArray = new Integer[1000000];
+        for(int i=0; i<inputArray.length; i++){
+            inputArray[i] = (int)(Math.random() * ((100000) + 1));
+        }
+
+        Sort.mergeSort(inputArray);
+
+        List<Integer> list = Arrays.asList(inputArray);
+        int index = Search.binarySearch(list, 100000);
+        System.out.println(index);
+        if(index!=-1){
+            System.out.println(list.get(index));
+        }
 
 
 
