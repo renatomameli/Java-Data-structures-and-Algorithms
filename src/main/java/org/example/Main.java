@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.algorithms.Exercises;
 import org.example.algorithms.Search;
 import org.example.algorithms.Sort;
 
@@ -55,19 +56,29 @@ public class Main {
 //        int v = 'b';
 
 
-        Integer[] inputArray = new Integer[1000000];
-        for(int i=0; i<inputArray.length; i++){
-            inputArray[i] = (int)(Math.random() * ((100000) + 1));
-        }
+//        Integer[] inputArray = new Integer[1000000];
+//        for(int i=0; i<inputArray.length; i++){
+//            inputArray[i] = (int)(Math.random() * ((100000) + 1));
+//        }
+//
+//        Sort.mergeSort(inputArray);
+//
+//        List<Integer> list = Arrays.asList(inputArray);
+//        int index = Search.binarySearch(list, 100000);
+//        System.out.println(index);
+//        if(index!=-1){
+//            System.out.println(list.get(index));
+//        }
 
-        Sort.mergeSort(inputArray);
+        String a = "sdukfg  hj";
+        String b = "dskufjgh";
 
-        List<Integer> list = Arrays.asList(inputArray);
-        int index = Search.binarySearch(list, 100000);
-        System.out.println(index);
-        if(index!=-1){
-            System.out.println(list.get(index));
-        }
+        char[] charArray = a.toCharArray();
+        String result = Exercises.urlify(charArray, 10);
+
+
+        System.out.println(result);
+
 
 
 

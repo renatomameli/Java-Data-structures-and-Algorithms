@@ -1,5 +1,6 @@
 package org.example.algorithms;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Exercises {
@@ -25,5 +26,35 @@ public class Exercises {
             map.put(s.charAt(i), true);
         }
         return true;
+    }
+
+    public static boolean isPermutation(String a, String b){
+        if (a.length()!=b.length()){
+            return false;
+        }
+
+        char[] charArrayA = a.toCharArray();
+        Arrays.sort(charArrayA);
+
+        char[] charArrayB = b.toCharArray();
+        Arrays.sort(charArrayB);
+
+        return Arrays.equals(charArrayA, charArrayB);
+    }
+
+    public static String urlify(char[] chars, int size){
+        final String REPLACEMENT = "%20";
+        StringBuilder sb = new StringBuilder();
+
+        for (int i=0; i<size; i++){
+            String currentChar = String.valueOf(chars[i]);
+            if (currentChar.equals(" ")){
+                sb.append(REPLACEMENT);
+            } else {
+                sb.append(currentChar);
+            }
+        }
+
+        return sb.toString();
     }
 }
