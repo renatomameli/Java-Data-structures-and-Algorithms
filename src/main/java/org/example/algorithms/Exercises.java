@@ -118,4 +118,29 @@ public class Exercises {
         }
         return true;
     }
+
+    public static String compress(String s){
+        StringBuilder sB = new StringBuilder();
+        char currentChar = s.charAt(0);
+        int counter = 1;
+
+        for (int i=1; i<s.length(); i++){
+            if (s.charAt(i) == currentChar){
+                counter++;
+            } else {
+                sB.append(counter).append((currentChar));
+                counter = 1;
+                currentChar = s.charAt(i);
+            }
+        }
+        sB.append(counter).append(currentChar);
+
+        String result = sB.toString();
+
+        if(result.length() < s.length()){
+            return result;
+        }
+
+        return s;
+    }
 }
