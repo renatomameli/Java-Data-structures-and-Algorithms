@@ -1,6 +1,5 @@
 package org.example.algorithms;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Search {
