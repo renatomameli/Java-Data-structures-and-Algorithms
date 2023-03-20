@@ -1,6 +1,7 @@
 package org.example.algorithms;
 
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.HashMap;
 
 public class Exercises {
@@ -56,5 +57,65 @@ public class Exercises {
         }
 
         return sb.toString();
+    }
+
+    public static boolean isPermutationOfPalindrome(String s){
+        s = s.toLowerCase();
+        int[] amountOfChars = new int[26];
+
+        for(int i=0; i<s.length(); i++){
+            amountOfChars[s.charAt(i)-97]++;
+        }
+
+        int amountOffOddChars = 0;
+
+        for (int i=0; i<amountOfChars.length; i++){
+            if (amountOfChars[i] % 2 != 0){
+                amountOffOddChars++;
+            }
+
+            if(amountOffOddChars > 1){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isPermutationOfPalindrome2(String s){
+        s = s.toLowerCase();
+        BitSet bitSet = new BitSet('z' - 'a');
+
+        for (char character : s.toCharArray()){
+            bitSet.flip(character - 'a');
+        }
+
+        return bitSet.cardinality() < 2;
+    }
+
+    public static boolean haveNotMoreThanOneEdit(String a, String b){
+        int lengthA = a.length();
+        int lengthB = b.length();
+        int diffLength = Math.abs(lengthA-lengthB);
+
+        if (diffLength > 1){
+            return false;
+        }
+
+        if (a.equals(b)){
+            return true;
+        }
+
+        for (int i=0; i<lengthA && i<lengthB; i++){
+            char charA = a.charAt(i);
+            char charB = b.charAt(i);
+
+            if(charA!=charB){
+                return i==lengthA-1                                                   // No more chars
+                        || a.substring(i+1,lengthA).equals(b.substring(i+1, lengthB)) // Rest is equal
+                        || a.substring(i+1, lengthA).equals(b.substring(i, lengthB))  // Diff was only added char in a
+                        || a.substring(i, lengthA).equals(b.substring(i+1, lengthB)); // Diff was only added char in b
+            }
+        }
+        return true;
     }
 }

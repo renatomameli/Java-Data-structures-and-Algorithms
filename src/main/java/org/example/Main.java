@@ -1,13 +1,8 @@
 package org.example;
 
 import org.example.algorithms.Exercises;
-import org.example.algorithms.Search;
-import org.example.algorithms.Sort;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.BitSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -70,19 +65,16 @@ public class Main {
 //            System.out.println(list.get(index));
 //        }
 
-        String a = "sdukfg  hj";
-        String b = "dskufjgh";
-
-        char[] charArray = a.toCharArray();
-        String result = Exercises.urlify(charArray, 10);
 
 
+        String a = "abc";
+        String b = "ad";
+
+        String c = b.substring(0);
+        System.out.println(c);
+
+        boolean result = Exercises.haveNotMoreThanOneEdit(a,b);
         System.out.println(result);
 
-
-
-
     }
-
-
 }
