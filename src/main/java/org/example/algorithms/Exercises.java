@@ -143,4 +143,30 @@ public class Exercises {
 
         return s;
     }
+
+    public static int[][] rotateBy90Degree(int[][] matrix){
+        for (int areaCount = 0; areaCount < matrix.length/2; areaCount++){
+            int areaLength = matrix.length-areaCount*2;
+
+            for(int column = 0; column<areaLength-1; column++){
+                int counter = 0;
+                int xOld = column+areaCount;
+                int yOld = areaCount;
+                int oldValue = matrix[yOld][xOld];
+                int newValue;
+
+                while (counter < 4){
+                    int xNew = matrix.length-1-yOld;
+                    int yNew = xOld;
+                    newValue = matrix[yNew][xNew];
+                    matrix[yNew][xNew] = oldValue;
+                    oldValue = newValue;
+                    xOld = xNew;
+                    yOld = yNew;
+                    counter++;
+                }
+            }
+        }
+        return matrix;
+    }
 }
