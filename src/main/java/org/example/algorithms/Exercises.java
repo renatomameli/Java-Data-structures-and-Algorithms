@@ -226,4 +226,24 @@ public class Exercises {
         }
 
     }
+
+    public static boolean isRotation(String a, String b){
+        if (a.length() != b.length()){
+            return false;
+        }
+
+        char firstChar = a.charAt(0);
+        StringBuilder sb = new StringBuilder();
+
+        for (int i=0; i<a.length(); i++){
+            if (b.charAt(i)==firstChar){
+                sb.append(b, i, a.length());
+                sb.append(b, 0, i);
+            }
+            if (a.equals(sb.toString())){
+                return true;
+            }
+        }
+        return false;
+    }
 }
