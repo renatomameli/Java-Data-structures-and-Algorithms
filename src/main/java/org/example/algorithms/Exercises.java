@@ -1,5 +1,8 @@
 package org.example.algorithms;
 
+import org.example.dataStructures.AdvancedNode;
+import org.example.dataStructures.Node;
+
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.HashMap;
@@ -245,5 +248,36 @@ public class Exercises {
             }
         }
         return false;
+    }
+
+    public static void removeDuplicates (Node node){
+        HashMap<Integer, Node> hashMap = new HashMap<>();
+        hashMap.put(node.data, node);
+
+        while (node.next!=null){
+            Node foundNode = hashMap.get(node.next.data);
+            if(foundNode!=null){
+
+            }
+
+        }
+    }
+
+    public static int findFromBehind (Node n, int number){
+        int counter = 0;
+        int indexFound = -1;
+
+        while (n != null){
+            if (n.data == number){
+                indexFound = counter;
+            }
+            n = n.next;
+            counter++;
+        }
+
+        if (indexFound >= 0){
+            return counter-indexFound;
+        }
+        return -1;
     }
 }

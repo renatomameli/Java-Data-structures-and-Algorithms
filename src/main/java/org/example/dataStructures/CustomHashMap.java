@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class CustomHashMap<K, V> {
 
-    private final ArrayList<LinkedList<Node<K, V>>> arrayList;
+    private final ArrayList<LinkedList<AdvancedNode<K, V>>> arrayList;
     private int capacity;
 
     public CustomHashMap(int capacity){
@@ -22,8 +22,8 @@ public class CustomHashMap<K, V> {
 
     public void put(K key, V value){
         int arrayIndex = this.getHashIndex(key);
-        LinkedList<Node<K, V>> linkedList = arrayList.get(arrayIndex);
-        Node<K, V> node = new Node<>(key, value);
+        LinkedList<AdvancedNode<K, V>> linkedList = arrayList.get(arrayIndex);
+        AdvancedNode<K, V> node = new AdvancedNode<>(key, value);
 
         if (linkedList == null){
             linkedList = new LinkedList<>();
@@ -36,11 +36,11 @@ public class CustomHashMap<K, V> {
 
     public Optional<V> get(K key){
         int arrayIndex = getHashIndex(key);
-        LinkedList<Node<K, V>> linkedList = arrayList.get(arrayIndex);
+        LinkedList<AdvancedNode<K, V>> linkedList = arrayList.get(arrayIndex);
 
 
         if (linkedList!=null){
-            for (Node<K, V> node : linkedList) {
+            for (AdvancedNode<K, V> node : linkedList) {
                 if (node.key==key){
                     return Optional.of(node.value);
                 }
