@@ -280,4 +280,16 @@ public class Exercises {
         }
         return -1;
     }
+
+    public static int printKthToLast(Node n, int k){
+        if (n == null){
+            return 0;
+        }
+
+        int index = printKthToLast(n.next, k+1);
+        if (index == k){
+            System.out.println(k + "th to last node is " + n.data);
+        }
+        return index;
+    }
 }
