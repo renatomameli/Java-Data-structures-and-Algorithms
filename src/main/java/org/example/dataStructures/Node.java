@@ -14,5 +14,16 @@ public class Node {
         this.data = data;
         this.next = next;
     }
+
+    public String toString(){
+        Node n = this;
+        StringBuilder sb = new StringBuilder();
+        sb.append(n.data);
+        while (n.next!=null){
+            sb.append(", ").append(n.next.data);
+            n=n.next;
+        }
+        return sb.toString();
+    }
 }
 

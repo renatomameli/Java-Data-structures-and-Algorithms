@@ -292,4 +292,22 @@ public class Exercises {
         }
         return index;
     }
+
+    public static void partition(Node n, int x){
+        Node pivot = null;
+
+        while (n != null){
+            int val = n.data;
+            if (pivot == null){
+                if (val >= x){
+                    pivot = n;
+                }
+            } else if (val < x){
+                n.data  = pivot.data;
+                pivot.data = val;
+                pivot = pivot.next;
+            }
+            n = n.next;
+        }
+    }
 }
