@@ -312,6 +312,7 @@ public class Exercises {
     }
 
     private static void reverseList(Node n){
+        System.out.println("List before " + n);
         Node buffer = null;
         Node pointer = n;
 
@@ -321,6 +322,7 @@ public class Exercises {
             n.next = buffer;
             buffer = n;
         }
+        System.out.println("List reversed " + n);
     }
 
     public static Node intersection(Node a, Node b) {
@@ -338,5 +340,36 @@ public class Exercises {
             b = b.next;
         }
         return result;
+    }
+
+    public static Node intersection2(Node a, Node b){
+        final int lengthA = a.length();
+        final int lengthB = b.length();
+
+        final int difference = lengthB - lengthA;
+
+        if (difference>0){
+            b = getXNext(b, difference);
+        }
+        if (difference<0){
+            a = getXNext(a, Math.abs(difference));
+        }
+
+        while (a!=null && b!=null){
+            if (a==b){
+                return a;
+            }
+            a = a.next;
+            b = b.next;
+        }
+        return null;
+    }
+
+    private static Node getXNext(Node n, int x){
+        while (x>0 && n.next!=null){
+            n = n.next;
+            x--;
+        }
+        return n;
     }
 }
