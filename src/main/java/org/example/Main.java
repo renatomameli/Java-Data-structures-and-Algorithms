@@ -4,6 +4,7 @@ import org.example.algorithms.Exercises;
 import org.example.dataStructures.Node;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 
 public class Main {
@@ -27,6 +28,9 @@ public class Main {
 
         Exercises.partition(n, 5);
         System.out.println(n);
+
+        HashMap<Node, Boolean> hashMap = new HashMap<>();
+        hashMap.put(n, true);
 
 
     }

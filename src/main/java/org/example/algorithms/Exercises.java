@@ -310,4 +310,33 @@ public class Exercises {
             n = n.next;
         }
     }
+
+    private static void reverseList(Node n){
+        Node buffer = null;
+        Node pointer = n;
+
+        while (pointer!=null){
+            n = pointer;
+            pointer = n.next;
+            n.next = buffer;
+            buffer = n;
+        }
+    }
+
+    public static Node intersection(Node a, Node b) {
+        reverseList(a);
+        reverseList(b);
+
+        Node result = null;
+        while (a!=null && b!=null){
+            if (a==b){
+                result = a;
+            } else {
+                return result;
+            }
+            a = a.next;
+            b = b.next;
+        }
+        return result;
+    }
 }
