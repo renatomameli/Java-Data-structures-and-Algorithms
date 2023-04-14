@@ -22,7 +22,7 @@ public class Main {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
-        n5.next = n6;
+        n5.next = n3;
 
         Node a = new Node(11);
         Node a1 = new Node(12);
@@ -32,10 +32,7 @@ public class Main {
         a1.next = a2;
         a2.next = n2;
 
-        int length = a.length();
-        System.out.println(length);
-
-        Node result = Exercises.intersection2(a,n);
+        Node result = Node.getStartLoop(n);
         System.out.println(result);
 
 
